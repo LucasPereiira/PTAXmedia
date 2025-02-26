@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média PTAX</title>
+    <script src="https://cdn.tailwindcss.com"></script>    
+    <link rel="shortcut icon" href="./favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./favicon.png">
+</head>
+<header>
+    <div class="max-w-6xl mx-auto bg-gray">  
+        <!-- Cabeçalho -->
+        <div class="flex justify-between items-center">
+            <h1 class="text-xl font-semibold flex items-center">
+                📈 Média PTAX
+            </h1>
+            <div class="flex space-x-2">
+                <button class="px-3 py-1 text-sm rounded-lg bg-black text-white year">2025</button>
+                <button class="px-3 py-1 text-sm rounded-lg hover:bg-blue-200 transition year">2024</button>
+                <button class="px-3 py-1 text-sm rounded-lg hover:bg-blue-200 transition year">2023</button>
+            </div>
+        </div>
+    </div>
+</header>
+<body class="bg-gray-100 p-6">
+
+    <div class="max-w-6xl mx-auto bg-gray"> 
+
+        <div id="aviso" class="fixed top-0 left-0 w-full bg-blue-500 text-white text-left sm:text-base md:text-center py-3 font-semibold transform -translate-y-full transition-transform duration-300 ease-in-out">
+            PTAX Média está de visual novo!<br>
+
+            - Correção da média anual: 01/01/2025 até atualmente.
+        </div>
+
+        <!-- Cotação Atual -->
+        <div class="mt-6 flex justify-between items-center">        
+            <p class="text-gray-600 text-sm">Cotação Atual</p>              
+        
+            <p class="text-gray-400 text-sm" id="dataDia"></p>
+        </div>
+        <div id="valorDia" class="bg-white p-4 text-12xl font-semibold rounded-lg border border-gray-300 hover:shadow-lg transition">
+            R$
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 gap-4">
+            <div class="bg-white p-4 rounded-lg border border-gray-300 hover:shadow-lg transition">
+                <p class="text-gray-600 text-sm">Média do Mês</p>
+                <p id="mediaMes" class="text-xl font-semibold">R$ </p>
+            </div>
+            <div class="bg-white p-4 rounded-lg border border-gray-300 hover:shadow-lg transition">
+                <p class="text-gray-600 text-sm">Média do Ano</p>
+                <p id="mediaAno" class="text-xl font-semibold">R$ </p>
+            </div>
+        </div>
+
+        <!-- Histórico do Mês -->
+        <div class="mt-6">
+            <p class="text-gray-600 text-sm">Histórico do Mês</p>
+            <div class="grid grid-cols-6 sm:flex sm:space-x-2 sm:mt-2" id="meses"></div>
+        </div>
+
+        <!-- Tabela de Histórico do mês -->
+        <div class="mt-4 grid grid-cols-3 gap-4" id="listPTAX"></div>
+        <br>
+        <br>
+        <div class="flex justify-end">
+            <button onclick="window.location.href='../PTAXmedia_old'" class="px-3 py-1 text-sm rounded-lg hover:bg-blue-200 transition">Layout antigo</button>
+        </div>
+    </div>
+ 
+    <script>
+        window.onload = function() {
+            var aviso = document.getElementById("aviso");
+
+            // Exibe o aviso (desliza para baixo)
+            setTimeout(function() {
+                aviso.classList.remove('-translate-y-full');
+                aviso.classList.add('translate-y-0');
+            }, 100);
+
+            // Esconde o aviso após 3 segundos
+            setTimeout(function() {
+                aviso.classList.remove('translate-y-0');
+                aviso.classList.add('-translate-y-full');
+            }, 4000);
+        };
+    </script>
+
+    <script src="./pesquisa.js"></script>
+</body>
+</html>
