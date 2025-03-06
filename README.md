@@ -1,4 +1,4 @@
-PTAXmédia
+# PTAXmédia
 
 Facilidade na visualização do valor do dólar atual segundo o BACEN, bem como seu histórico mensal, e média anual.
 
